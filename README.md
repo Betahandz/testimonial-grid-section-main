@@ -1,3 +1,3 @@
 **Testimonial Grid Projects**
 ## What I Learnt
-use this project to retouch some vanilla javascript.
+Decided to test my skill on my vanilla JavaScript.
