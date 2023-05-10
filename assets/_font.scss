@@ -1,0 +1,12 @@
+// typography
+@font-face {
+    font-family: barlow-bold;
+    src: url(./assets/fonts/BarlowSemiCondensed-Medium.ttf);
+}
+@font-face {
+    font-family: barlow-lite;
+    src: url(./assets/fonts/BarlowSemiCondensed-Regular.ttf);
+}
+// variables
+$pro: barlow-bold;
+$lite: barlow-lite;

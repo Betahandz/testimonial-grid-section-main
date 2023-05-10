@@ -1,0 +1,9 @@
+// display mixin
+@mixin flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin outline {
+    border: 2px solid black;
+}

@@ -1,0 +1,196 @@
+// *
+* {
+    padding: 0;
+    margin: 0;
+    resize: none;
+    box-sizing: border-box;
+}
+// importations
+@import "./assets/mixin";
+@import "./assets/color";
+@import "./assets/font";
+/* ==================== */
+html {
+    font-size: 13px;
+    scroll-behavior: smooth;
+}
+/* ==================== */
+body {
+    background-color: $light-grayish-blue;
+    width: 100%;
+    min-height: 100vh;
+    @include flex;
+    flex-direction: column;
+}
+// wrap
+.wrap {
+    width: 90%;
+    max-width: 900px;
+    min-height: 400px;
+    // @include outline;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    overflow: hidden;
+    padding: 30px;
+    .testimonial {
+        // @include outline;
+        padding: 10px;
+        min-height: 200px;
+        border-radius: 10px;
+        position: relative;
+        isolation: isolate;
+        @include flex;
+        flex-direction: column;
+        filter: brightness(70%);
+        transition: filter 3s;
+        &:hover,
+        &:focus-within {
+            filter: brightness(100%);
+            transform: scale(1.02);
+            .tsvg {
+                path {
+                    fill: red;
+                }
+            }
+            .test-master .profile-pic img {
+                transform: scale(1.2);
+            }
+        }
+        .tsvg {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: -1;
+            path {
+                transition: .3s;
+            }
+        }
+        &:first-child,
+        &:nth-child(4) {
+            grid-column: span 2;
+            background-color: $very-dark-blackish-blue;
+        }
+        &:first-child {
+            background-color: $moderate-violet;
+            transform: translate(-1000px);
+        }
+        &:nth-child(2) {
+            background-color: $very-dark-grayish-blue;
+            transform: translateY(-500px);
+        }
+        &:nth-child(3) {
+            grid-row: 2/ 2;
+            transform: translateY(1000px);
+        }
+        &:last-child {
+            grid-row: span 2;
+            transform: translate(500px);
+        }
+        &:nth-child(4) {
+            grid-row: 2/ 2;
+            transform: translateY(400px);
+        }
+        &:nth-child(3),
+        &:last-child {
+            background-color: $white;
+            .test-master {
+                .person-detail {
+                    .name {
+                        color: $very-dark-blackish-blue;
+                    }
+                    .status {
+                        color: $very-dark-grayish-blue;
+                    }
+                }
+            }
+            .content {
+                .title {
+                    color: $very-dark-blackish-blue;
+                }
+                .quoting {
+                    color: $very-dark-grayish-blue;
+                }
+            }
+        }
+        .test-master {
+            @include flex;
+            justify-content: flex-start;
+            width: 100%;
+            gap: 10px;
+            margin-bottom: 10px;
+            .profile-pic {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: $moderate-violet;
+                @include flex;
+                img {
+                    // display: none;
+                    width: 80%;
+                    height: 80%;
+                    border-radius: 50%;
+                    transition: .3s;
+                }
+            }
+            .person-detail {
+                .name {
+                    font-family: $pro;
+                    color: $light-grayish-blue;
+                    font-size: 14px;
+                }
+                .status {
+                    font-family: $lite;
+                    color: $light-gray;
+                    font-size: 10px;
+                }
+            }
+        }
+        .content {
+            .title {
+                font-family: $pro;
+                color: white;
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+            .quoting {
+                // font-size: ;
+                font-family: $lite;
+                color: $light-gray;
+            }
+
+        }
+    }
+    .show {
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+                transform: translate(0);
+                transition: 1s;
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .wrap {
+        // @include outline;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: unset;
+        .testimonial {
+            &:last-child {
+                grid-column: 1/-1;
+            }
+        }
+    }
+}
+@media screen and (max-width: 575px) {
+    .wrap {
+        // @include outline;
+        padding: 0;
+        display: block;
+        .testimonial {
+            // grid-column: 1/-1;
+            margin: 10px 0;
+        }
+    }
+}
